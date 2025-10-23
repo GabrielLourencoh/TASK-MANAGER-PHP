@@ -18,20 +18,21 @@
                     "message" => "Erro ao deletar o registro: Task de ID ".$_POST['ID']." não existe. "
                 );
             } else {
-                $sql = "DELETE FROM task WHERE id = ?";
+                $sql = "UPDATE task SET STATUS = ? WHERE ID = ?";
                 $stmt = $conn->prepare($sql);
                 $stmt->execute([
+                    '3',
                     $_POST['ID']
                 ]);
                 $dados = array(
                     "type" => "success",
-                    "message" => "Registro excluido com sucesso!"
+                    "message" => "Registro cancelado com sucesso!"
                 );
             }
         } catch (PDOException $e){
             $dados = array(
                 "type" => "error",
-                "message" => "Erro ao excluir o registro: ".$e->getMessage()
+                "message" => "Erro ao cancelar o registro: ".$e->getMessage()
             );
         }
     }
