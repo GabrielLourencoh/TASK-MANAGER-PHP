@@ -1,0 +1,8 @@
+.center-login {
+    height: 100vh;
+    align-items: center;
+}
+
+.bg-login {
+    background-color: #60a3bc !important;
+}
