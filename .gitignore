@@ -1,27 +1,23 @@
-# Ignora TUDO que está dentro de frontend/assets/vendor/
-/frontend/assets/vendor/
-!/frontend/assets/vendor/bootstrap/css/bootstrap.min.css
-!/frontend/assets/vendor/bootstrap/js/bootstrap.bundle.min.js
-!/frontend/assets/vendor/jquery/jquery-3.7.1.min.js
-!/frontend/assets/vendor/sweetAlert/dist/sweetalert.min.js
+# 1. Dependências de Frontend
+frontend/vendor/ 
 
-# Arquivos de sistema/temporários/logs
-*.log
-*.tmp
-*.bak
-*.swp
-.DS_Store
-Thumbs.db
+# 2. Dependências de Backend (PHP)
+/vendor/
 
-# Arquivos de configuração local/credenciais
+# 3. Dependências de Frontend (Node.js)
+/node_modules/
+
+# 4. Arquivos de Configuração e Ambiente
 .env
-config.php
-connection/conn_local.php
+.env.local
+.env.*.local
 
-# Arquivos e pastas de IDEs e Editores
+# 5. Arquivos de Log
+*.log
+logs/
+
+# 6. Arquivos de IDE e Sistema
 .vscode/
 .idea/
-nbproject/
-
-# Pastas de cache
-/cache/
+.DS_Store
+Thumbs.db
