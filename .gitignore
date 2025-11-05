@@ -1,0 +1,27 @@
+# Ignora TUDO que está dentro de frontend/assets/vendor/
+/frontend/assets/vendor/
+!/frontend/assets/vendor/bootstrap/css/bootstrap.min.css
+!/frontend/assets/vendor/bootstrap/js/bootstrap.bundle.min.js
+!/frontend/assets/vendor/jquery/jquery-3.7.1.min.js
+!/frontend/assets/vendor/sweetAlert/dist/sweetalert.min.js
+
+# Arquivos de sistema/temporários/logs
+*.log
+*.tmp
+*.bak
+*.swp
+.DS_Store
+Thumbs.db
+
+# Arquivos de configuração local/credenciais
+.env
+config.php
+connection/conn_local.php
+
+# Arquivos e pastas de IDEs e Editores
+.vscode/
+.idea/
+nbproject/
+
+# Pastas de cache
+/cache/
