@@ -21,7 +21,7 @@
                 $sql = "UPDATE task SET STATUS = ? WHERE ID = ?";
                 $stmt = $conn->prepare($sql);
                 $stmt->execute([
-                    '3',
+                    '4',
                     $_POST['ID']
                 ]);
                 $dados = array(
