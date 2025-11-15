@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskManager - Sistema Gerenciador de Tarefas</title>
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../vendor/sweetalert/dist/sweetalert2.css">
+    <link rel="stylesheet" href="../vendor/font-awesome/css/all.min.css">
+    <script src="../vendor/jQuery/jquery-3.7.1.min.js" defer></script>
+    <script src="../vendor/bootstrap/js/bootstrap.js" defer></script>
+    <script src="../vendor/sweetAlert/dist/sweetalert2.all.js" defer></script>
+    <script src="../controllers/task/create.js" defer></script>
+    <script src="../controllers/task/read.js" defer></script>
+    <script src="../controllers/task/view.js" defer></script>
+    <script src="../controllers/task/update.js" defer></script>
+    <script src="../controllers/task/delete.js" defer></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info shadow fixed-top">
+        <a class="navbar-brand text-white"><strong>TaskManager</strong></a>
+        <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="my-nav" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#"><i class="fa-solid fa-gauge-high"></i>Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa-solid fa-user"></i>Perfil</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <div class="row mt-5">
+            <div class="col-12 col-sm-3 col-md-3 mt-sm-5 mt-md-5">
+                <div class="alert alert-primary p-3 text-center shadow">
+                    <h1 class="text-center">
+                        <i class="fa-solid fa-bars-progress"></i> 10
+                    </h1>
+                    <span class="text-center">Tarefas a realizar</span>
+                </div>
+            </div>
+            <div class="col-12 col-sm-3 col-md-3 mt-sm-5 mt-md-5">
+                <div class="alert alert-warning p-3 text-center shadow">
+                    <h1 class="text-center">
+                        <i class="fa-solid fa-list-check"></i> 08
+                    </h1>
+                    <span class="text-center">Tarefas em andamento</span>
+                </div>
+            </div>
+            <div class="col-12 col-sm-3 col-md-3 mt-sm-5 mt-md-5">
+                <div class="alert alert-success p-3 text-center shadow">
+                    <h1 class="text-center">
+                        <i class="fa-solid fa-thumbs-up"></i> 15
+                    </h1>
+                    <span class="text-center">Tarefas finalizadas</span>
+                </div>
+            </div>
+            <div class="col-12 col-sm-3 col-md-3 mt-sm-5 mt-md-5">
+                <div class="alert alert-danger p-3 text-center shadow">
+                    <h1 class="text-center">
+                        <i class="fa-solid fa-trash-can"></i> 09
+                    </h1>
+                    <span class="text-center">Tarefas canceladas</span>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-12">
+                <div class="card shadow">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-12 col-sm-10">
+                                <h4 class="text-info">Gerenciador de tarefas</h4>
+                            </div>
+                            <div class="col-12 col-sm-2">
+                                <button class="btn btn-info btn-block btn-new">
+                                    <i class="fa-solid fa-plus"></i> Novo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th class="text-center">ID</th>
+                                        <th class="text-center">Data/Hora</th>
+                                        <th class="text-center">Tarefa</th>
+                                        <th class="text-center">Status</th>
+                                        <th class="text-center">Ação</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center">00</td>
+                                        <td class="text-left">Tarefa 000000</td>
+                                        <td class="text-center"><h5><span class="badge badge-primary">A Realizar</span></h5></td>
+                                        <td class="text-center">
+                                            <button class="btn btn-info btn-view">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </button>
+                                            <button class="btn btn-primary btn-edit">
+                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            </button>
+                                            <button class="btn btn-warning btn-status">
+                                                <i class="fa-solid fa-circle-check"></i>
+                                            </button>
+                                            <button class="btn btn-danger btn-delete">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <p class="text-center">
+                            Desenvolvido por <strong>Gabriel Lourenço</strong> <i class="fa-solid fa-heart"></i> 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-task" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="my-modal-title">Gerenciamento de tarefas</h5>
+                    <button class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="form-task">
+                        <div class="form-group row">
+                            <div class="col-12 col-sm-4">
+                                <label>Data/Hora</label>
+                                <input type="datetime-local" name="DATE_TIME" id="DATE_TIME" class="form-control">
+                            </div>
+                            <div class="col-12 col-sm-8">
+                                <label>Título da tarefa</label>
+                                <input type="text" name="TITLE" id="TITLE" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Descrição da tarefa</label>
+                            <textarea name="DESCRIPTION" id="DESCRIPTION" class="form-control" rows="5"></textarea>
+                        </div>
+                        <input type="hidden" name="USER_ID" id="USER_ID" value="1">
+                        <input type="hidden" name="ID" id="ID" value="">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success btn-save"><i class="fa-solid fa-floppy-disk"></i> Salvar</button>
+                    <button class="btn btn-success btn-update"><i class="fa-solid fa-floppy-disk"></i> Atualizar</button>
+                    <button class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-circle-xmark"></i> Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
