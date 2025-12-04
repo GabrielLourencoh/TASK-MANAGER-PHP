@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="frontend/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="frontend/vendor/sweetAlert/dist/sweetalert2.css">
     <link rel="stylesheet" href="frontend/assets/css/login.css">
+    <script src="frontend/vendor/jQuery/jquery-3.7.1.min.js" defer></script>
+    <script src="frontend/controllers/user/login.js" defer></script>
+    <script src="frontend/vendor/sweetAlert/dist/sweetalert2.all.js" defer></script>
 </head>
 <body>
 
@@ -20,7 +23,7 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form id="form-login">
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="email" name="email" id="email" class="form-control">
@@ -32,7 +35,7 @@
                         </form>
                     </div>
                     <div class="card-footer">
-                        <button class="btn btn-outline-info btn-block btn-lg">Entrar</button>
+                        <button class="btn btn-outline-info btn-block btn-lg btn-login">Entrar</button>
                     </div>
                 </div>
             </div>

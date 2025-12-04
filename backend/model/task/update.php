@@ -26,7 +26,7 @@
                 $stmt->execute([
                     $_POST['TITLE'],
                     $_POST['DESCRIPTION'], 
-                    $datalocal,
+                    $_POST['DATE_TIME'],
                     $_POST['ID']
                 ]);
                 $dados = array(

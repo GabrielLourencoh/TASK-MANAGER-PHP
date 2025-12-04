@@ -1,45 +1,38 @@
 <?php
-    include('../../connection/conn.php');
 
-    if (empty($_POST['DESCRIPTION']) || empty($_POST['TITLE']) || empty($_POST['USER_ID'])) {
+    include('../../connection/conn.php');
+    session_start();
+
+    if (empty($_POST['DESCRIPTION']) || empty($_POST['TITLE'])) {
         $dados = array(
             "type" => "error",
             "message" => "Existe(m) campo(s) obrigatório(s) não preenchido(s)."
         );
     } else {
         try {
-            $sql = "SELECT * FROM user WHERE id = ?";
+            $sql = "INSERT INTO task (DATE_TIME, TITLE, DESCRIPTION, STATUS, USER_ID) VALUES (?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($sql);
-            $stmt->execute([$_POST['USER_ID']]);
-            $user = $stmt->fetch(PDO::FETCH_ASSOC);
-            if (!$user) {
-                $dados = array(
-                    "type" => "error",
-                    "message" => "Erro ao criar o registro: Usuário de ID ".$_POST['USER_ID']." não existe. "
-                );
-            } else {
-                $sql = "INSERT INTO task (DATE_TIME, TITLE, DESCRIPTION, STATUS, USER_ID) VALUES (?, ?, ?, ?, ?)";
-                $stmt = $conn->prepare($sql);
-                $stmt->execute([
-                    $_POST['DATE_TIME'],
-                    $_POST['TITLE'], 
-                    $_POST['DESCRIPTION'], 
-                    '1',
-                    $_POST['USER_ID']
-                ]);
-                $dados = array(
-                    "type" => "success",
-                    "message" => "Registro salvo com sucesso!"
-                );
-            }
-        } catch (PDOException $e){
+            $stmt->execute([
+                $_POST['DATE_TIME'],
+                $_POST['TITLE'],
+                $_POST['DESCRIPTION'],
+                '1', 
+                $_SESSION['id']
+            ]);
+            
+            $dados = array(
+                "type" => "success",
+                "message" => "Registro salvo com sucesso!"
+            );
+        } catch (PDOException $e) {
             $dados = array(
                 "type" => "error",
-                "message" => "Erro ao criar o registro: ".$e->getMessage()
+                "message" => "Erro ao criar o registro: " . $e->getMessage()
             );
         }
     }
 
     $conn = null;
     echo json_encode($dados);
+
 ?>
