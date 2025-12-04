@@ -11,7 +11,7 @@ $(document).ready(function(){
             success: function (dados) {
                 Swal.fire({
                     icon: dados.type,
-                    title: "SysTask",
+                    title: "TaskManager",
                     text: dados.message
                 });
                 setTimeout(function(){

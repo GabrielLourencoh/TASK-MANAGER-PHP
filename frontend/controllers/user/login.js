@@ -14,7 +14,7 @@ $(document).ready(function(){
                 if (dados.type == 'error') {
                     Swal.fire({
                         icon: dados.type,
-                        title: "SysTask",
+                        title: "TaskManager",
                         text: dados.message
                     });
                 } else {

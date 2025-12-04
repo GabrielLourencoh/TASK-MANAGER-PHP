@@ -4,7 +4,7 @@
     if(isset($_SESSION['id']) && isset($_SESSION['name']) && isset($_SESSION['email']) && isset($_SESSION['level'])) {
         $dados = array(
             "type" => "success",
-            "message" => "Usuário validado!"
+            "message" => "Seja bem-vindo ao TaskManager!"
         );
     } else {
         $dados = array(
